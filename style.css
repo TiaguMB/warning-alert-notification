@@ -48,6 +48,13 @@ button {
   overflow: hidden;
   border-radius: 4px;
   border-left: 8px solid var(--color2);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.alert.showAlert{
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .alert.show {
@@ -70,7 +77,22 @@ button {
 }
 
 .alert.hide {
-  display: none;
+  animation: hide_slide 1s ease forwards;
+}
+
+@keyframes hide_slide {
+  0% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  80% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .alert .fa-exclamation-circle {
@@ -100,7 +122,6 @@ button {
 
 .close-btn:hover {
   background: var(--color5);
-
 }
 
 .close-btn .fa-times {
